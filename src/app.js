@@ -40,14 +40,22 @@ app.post("/contact",async (req,res)=>{
         //res.send(req.body);
         const userData= new User(req.body);
         await userData.save();
-        res.status(201).render("response");
+        res.status(201).render("respns");
     }
     catch(error){
        res.status(500).send(error);
     }
 })
 
-
+app.post("/respnse",(req ,res)=>{
+    try{
+        res.status(201).render("index");
+    }
+    catch(error){
+        res.status(500).send(error);
+     }
+    
+})
 app.listen(port,()=>{
     console.log(`server is running at port ${port}`);
 })
